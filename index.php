@@ -32,6 +32,7 @@ $num = 7;
     </style>
 </head>
 <body>
+    <h2>Taula de multiplicar</h2>
     <?php
     
     ?>

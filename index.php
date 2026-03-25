@@ -1,5 +1,8 @@
 <?php
-$num = null;
+    $num = null;
+    if (isset($_POST['numero'])) {
+    $numero = $_POST['numero'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,28 +33,30 @@ $num = null;
     </style>
 </head>
 <body>
-<h2>Taula de multiplicar</h2>
+    <h2>Taula de multiplicar</h2>
+
+    <form method="POST">
+    <label>Introdueix un número (1-12): </label>
+    <input type="number" name="numero" min="1" max="12" required>
+    <button type="submit">Generar taula</button>
+    </form>
+
 <?php
-if ($num < 1 || $num > 12) {
-    echo "<p class='error'>Error: El número ha d'estar entre 1 i 12.</p>";
-} else {
-    echo "<table>";
-    for ($i = 1; $i <= 10; $i++) {
-        if ($i % 2 == 0) {
-            $classe = "parell";
+    if ($numero !== null) {
+        if ($numero < 1 || $numero > 12) {
+        echo "<p class='error'>Error: El número ha d'estar entre 1 i 12.</p>";
         } else {
-            $classe = "senar";
+            echo "<table>";
+            for ($i = 1; $i <= 10; $i++) {
+            $classe = ($i % 2 == 0) ? "parell" : "senar";
+            echo "<tr class='$classe'>";
+            echo "<td>$numero x $i</td>";
+            echo "<td>" . ($numero * $i) . "</td>";
+            echo "</tr>";
+            }
+            echo "</table>";
         }
-
-        echo "<tr class='$classe'>";
-        echo "<td>$num x $i</td>";
-        echo "<td>" . ($num * $i) . "</td>";
-        echo "</tr>";
     }
-
-    echo "</table>";
-}
 ?>
-
 </body>
 </html>

@@ -35,7 +35,7 @@
 <body>
     <h2>Taula de multiplicar</h2>
 
-    <form method="POST">
+    <form method="POST" action="index.php">
     <label>Introdueix un número (1-12): </label>
     <input type="number" name="numero" min="1" max="12" required>
     <button type="submit">Generar taula</button>

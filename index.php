@@ -34,7 +34,23 @@ $num = 7;
 <body>
     <h2>Taula de multiplicar</h2>
     <?php
-    
+    if ($num <1 || $num > 12){
+        echo "<pclass='error'>Error: El número ha d'estar entre 1 i 12</p>";
+    } else {
+        echo "<table>";
+        for ($i = 1;$i <= 10; $i++) {
+            if ($i % 2 == 0) {
+                $classe = "parell";
+            } else {
+                $classe = "senar";
+            }
+            echo "<tr class='$classe'>";
+            echo "<td>$num x $i</td>";
+            echo "<td>" . ($num * $i) . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    }
     ?>
 </body>
 </html>
